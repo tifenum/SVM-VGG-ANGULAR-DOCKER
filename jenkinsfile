@@ -6,7 +6,7 @@ pipeline {
                 echo 'Checking out code from public GitHub repository...'
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/master']], // Replace 'master' with your branch name if different
+                    branches: [[name: '*/main']], // Replace 'master' with your branch name if different
                     userRemoteConfigs: [[
                         url: 'https://github.com/tifenum/SVM-VGG-ANGULAR-DOCKER'
                     ]]
