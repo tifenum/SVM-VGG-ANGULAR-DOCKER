@@ -1,0 +1,18 @@
+<div
+  class="upload-container"
+  [class.dragging]="isDragging"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)"
+>
+  <p *ngIf="!isDragging" class="text-succes">Glissez et déposez vos fichiers ici</p>
+  <p *ngIf="isDragging">Relâchez vos fichiers pour les télécharger</p>
+  <button type="button" (click)="fileInput.click()">Ou choisissez un fichier</button>
+  <input
+    type="file"
+    #fileInput
+    (change)="onFileSelected($event)"
+    multiple
+    hidden
+  />
+</div>
