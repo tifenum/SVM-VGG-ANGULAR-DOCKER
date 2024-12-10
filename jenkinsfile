@@ -1,15 +1,21 @@
 pipeline {
     agent any
+    environment {
+        GIT_TERMINAL_PROMPT = '1'
+        GIT_CURL_VERBOSE = '1'  // Enable verbose logging for curl commands
+        GIT_TRACE = '1'         // Enable tracing for git operations
+        GIT_HTTP_MAX_REQUESTS = '1'  // Ensure no parallel requests to GitHub
+        GIT_HTTP_LOW_SPEED_LIMIT = '1000'  // Timeout if data transfer is too slow
+        GIT_HTTP_LOW_SPEED_TIME = '30'  // Timeout if data transfer is slow for 30 seconds
+    }
     stages {
         stage('Checkout Code') {
             steps {
                 echo 'Checking out code from public GitHub repository...'
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/main']], // Replace 'master' with your branch name if different
-                    userRemoteConfigs: [[
-                        url: 'https://github.com/tifenum/SVM-VGG-ANGULAR-DOCKER'
-                    ]]
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/tifenum/SVM-VGG-ANGULAR-DOCKER']]
                 ])
             }
         }
