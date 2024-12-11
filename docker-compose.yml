@@ -1,18 +1,18 @@
 version: '3.8'
 services:
-  vgg_service:
+  vgg:
     build: ./music_class
     ports:
       - "5000:5000"
     networks:
       - app-network
-  svm_service:
+  svm:
     build: ./back_SVM
     ports:
       - "5001:5001"
     networks:
       - app-network    
-  frontend:
+  front:
     build: ./front
     ports:
       - "4200:4200"
