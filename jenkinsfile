@@ -2,11 +2,11 @@ pipeline {
     agent any
     environment {
         GIT_TERMINAL_PROMPT = '1'
-        GIT_CURL_VERBOSE = '1'  // Enable verbose logging for curl commands
-        GIT_TRACE = '1'         // Enable tracing for git operations
-        GIT_HTTP_MAX_REQUESTS = '1'  // Ensure no parallel requests to GitHub
-        GIT_HTTP_LOW_SPEED_LIMIT = '1000'  // Timeout if data transfer is too slow
-        GIT_HTTP_LOW_SPEED_TIME = '30'  // Timeout if data transfer is slow for 30 seconds
+        GIT_CURL_VERBOSE = '1' 
+        GIT_TRACE = '1'         
+        GIT_HTTP_MAX_REQUESTS = '1'
+        GIT_HTTP_LOW_SPEED_LIMIT = '1000' 
+        GIT_HTTP_LOW_SPEED_TIME = '30'  
     }
     stages {
         stage('Checkout Code') {
@@ -54,56 +54,7 @@ pipeline {
                     bat 'docker-compose up -d'
                 }
             }
-        }
-        // stage('pytest'){
-        //     steps{
-        //          script {
-        //                 bat 'pip install pytest-html'
-        //         }
-        //     }
-        // }
-        // stage('Push front') {
-        //      steps {
-        //         script {
-        //         // Login to Docker Hub using the credentials stored in Jenkins
-        //         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'koukaa', passwordVariable: 'nabil1234')]) {
-        //             bat 'echo $DOCKER_PASSWORD | docker login -u koukaa -p nabil1234'
-        //         }
-        //         bat 'docker tag front koukaa/frontend:latest'
-        //         bat 'docker push koukaa/frontend:latest'
-
-        //         }
-        //      }
-        // }
-
-        // stage('Push svm'){
-        //     steps{
-        //        script {
-        //         // Login to Docker Hub using the credentials stored in Jenkins
-        //         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'hannibal', passwordVariable: 'Azerty@9911')]) {
-        //             bat 'echo $DOCKER_PASSWORD | docker login -u hannibal -p Azerty@9911'
-        //         }
-        //         bat 'docker tag svm koukaa/svm_image:latest'
-        //         bat 'docker push koukaa/svm_image:latest'
-        //         } 
-        //     }
-        // }
-        // stage('Push vgg19') {
-        //      steps {
-        //         script {
-        //         // Login to Docker Hub using the credentials stored in Jenkins
-        //         withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'koukaa', passwordVariable: 'nabil1234')]) {
-        //             bat 'echo $DOCKER_PASSWORD | docker login -u koukaa -p nabil1234'
-        //         }                
-        //         bat 'docker tag vgg19 koukaa/vgg19_image:latest'
-        //         bat 'docker push koukaa/vgg19_image:latest'
-        //         }
-        //      }
-        // }
-
-        
-        
-      
+        } 
     }
 
 
