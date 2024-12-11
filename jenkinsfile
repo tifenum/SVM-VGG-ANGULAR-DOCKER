@@ -38,7 +38,7 @@ pipeline {
             }
         }
         
-        stage('Build VGG19') {
+        stage('Build VGG') {
             steps {
                 script {
                     dir('music_class') {
