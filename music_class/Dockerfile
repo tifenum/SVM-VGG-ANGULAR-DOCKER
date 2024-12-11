@@ -7,12 +7,12 @@ RUN python -m pip install --upgrade pip
 COPY requirements.txt /app/
 
 RUN python -m pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --timeout=120 -r requirements.txt
 
 COPY Trained_model.h5 /app/
 
 COPY app.py /app/
 
-EXPOSE 5000
+EXPOSE 5000 
 
 CMD ["python", "app.py"]
