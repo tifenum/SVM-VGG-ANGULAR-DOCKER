@@ -63,6 +63,18 @@ def model_prediction(X_test):
     max_elements = unique_elements[counts == max_count]
     return max_elements[0]
 
+
+
+@app.route('/')
+def home():
+    return '''
+    <html>
+        <head><title>Music Genre Classification</title></head>
+        <body>
+            <h1>Welcome to the Music Genre Classification API</h1>
+        </body>
+    </html>
+    '''
 # Route pour la prédiction
 @app.route('/predict', methods=['POST'])
 def predict():
