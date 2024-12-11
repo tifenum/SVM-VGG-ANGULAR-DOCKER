@@ -75,4 +75,4 @@ def predict():
         return jsonify({'error': 'File type not allowed. Only .wav files are allowed.'}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
