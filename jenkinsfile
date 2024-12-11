@@ -37,7 +37,6 @@ pipeline {
                 }
             }
         }
-        
         stage('Build VGG') {
             steps {
                 script {
