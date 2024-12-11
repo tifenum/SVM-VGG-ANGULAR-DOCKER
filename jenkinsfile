@@ -31,7 +31,7 @@ pipeline {
         stage('Build SVM') {
             steps {
                 script {
-                    dir('back SVM') {
+                    dir('back_SVM') {
                         bat 'docker build -t svm .'
                     }
                 }
@@ -112,7 +112,7 @@ pipeline {
         publishHTML([allowMissing: false,
                      alwaysLinkToLastBuild: true,
                      keepAll: true,
-                     reportDir: 'Back SVM',
+                     reportDir: 'Back_SVM',
                      reportFiles: 'report.html',
                      reportName: 'Test Report'])
     }
