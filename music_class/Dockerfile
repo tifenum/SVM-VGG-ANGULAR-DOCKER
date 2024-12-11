@@ -8,6 +8,7 @@ COPY requirements.txt /app/
 
 RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir --timeout=120 -r requirements.txt
+RUN pip install gunicorn
 
 COPY Trained_model.h5 /app/
 
