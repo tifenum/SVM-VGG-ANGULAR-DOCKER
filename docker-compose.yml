@@ -7,7 +7,7 @@ services:
     networks:
       - app-network
   svm_service:
-    build: ./back SVM/SVM
+    build: ./back_SVM
     ports:
       - "5001:5001"
     networks:
