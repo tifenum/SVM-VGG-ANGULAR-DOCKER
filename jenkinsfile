@@ -105,15 +105,6 @@ pipeline {
         
       
     }
-    post {
-    success {
-        publishHTML([allowMissing: false,
-                     alwaysLinkToLastBuild: true,
-                     keepAll: true,
-                     reportDir: 'back_SVM',
-                     reportFiles: 'report.html',
-                     reportName: 'Test Report'])
-    }
-}
+
 
 }
