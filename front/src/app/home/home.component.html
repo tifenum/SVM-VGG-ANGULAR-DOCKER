@@ -1,21 +1,22 @@
-<div class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link btn btn-link" (click)="toggleThemes('dark')">Dark Theme</button>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link btn btn-link" (click)="toggleThemes('light')">Light Theme</button>
-        </li>
-      </ul>
+<div [class.album--loaded]="loaded" class="album-container">
+  <div class="content-container">
+    <div class="upload-section">
+      <div *ngIf="!isDropped" class="file-upload-container">
+        <app-file-upload (filesDropped)="onFilesDropped($event)"></app-file-upload>
+      </div>
+
+      <div *ngIf="isDropped" class="model-prediction">
+        <div class="model-prediction-title">Model Prediction</div>
+        <div class="model-prediction-buttons">
+          <button type="button" (click)="uploadAndPredict2()">Use SVM Model</button>
+          <button type="button" (click)="uploadAndPredict()">Use CNN Model</button>
+        </div>
+        <p class="prediction-text">Model Prediction: It's a <span>{{songTitle}}</span> music</p>
+      </div>
+    </div>
+
+    <div class="song-details">
+      <h1 class="song-title">{{songTitle}}</h1>
     </div>
   </div>
 </div>

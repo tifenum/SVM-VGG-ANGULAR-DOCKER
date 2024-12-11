@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   currentTheme: string = 'light-theme'; // Default theme
   albumArtist: string = 'Grouper';
   albumName: string = 'Grid of Points';
-  songTitle: string = 'The Races';
+  songTitle: string = 'upload something';
   currentTrack: number = 1;
   totalTracks: number = 7;
   isPlaying: boolean = true;
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
   albumDetails = {
     dark: {
       album: 'Grouper - Grid of Points',
-      song: 'The Races',
+      song: 'Upload Something',
       art: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/36124/grouper-grid-of-points.jpg',
       position: '01 of 07',
       start: '0:27',
