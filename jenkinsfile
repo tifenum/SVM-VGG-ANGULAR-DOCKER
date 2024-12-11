@@ -51,9 +51,7 @@ pipeline {
         stage('Deploy'){
             steps{
                  script {
-                    
-                        bat 'docker-compose up -d'
-                    
+                    bat 'docker-compose up -d'
                 }
             }
         }
@@ -112,7 +110,7 @@ pipeline {
         publishHTML([allowMissing: false,
                      alwaysLinkToLastBuild: true,
                      keepAll: true,
-                     reportDir: 'Back_SVM',
+                     reportDir: 'back_SVM',
                      reportFiles: 'report.html',
                      reportName: 'Test Report'])
     }
